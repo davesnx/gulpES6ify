@@ -15,6 +15,7 @@
   "author": "@davesnx",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.5",
     "gulp-livereload": "^3.8.0",
     "lodash": "^3.10.1"
   }
