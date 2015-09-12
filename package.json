@@ -1,7 +1,7 @@
 {
   "name": "es6-babel-browserify-watchify",
   "version": "1.0.0",
-  "description": "Initial Gulpfile ",
+  "description": "Initial Gulp for ES6 with livereload, babelify, browserify & watchify",
   "main": "Gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,13 +10,29 @@
     "es6",
     "babel",
     "browserify",
-    "watchify"
+    "watchify",
+    "livereload"
   ],
   "author": "@davesnx",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "bootstrap": "^3.3.5",
-    "gulp-livereload": "^3.8.0",
-    "lodash": "^3.10.1"
+    "babelify": "6.3.0",
+    "browserify": "11.0.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "*",
+    "gulp-livereload": "*",
+    "gulp-rename": "*",
+    "gulp-ruby-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "^3.0.6",
+    "lodash": "^3.10.1",
+    "lodash-node": "^3.10.1",
+    "node-notifier": "^4.2.3",
+    "underscore": "^1.8.3",
+    "underscore-node": "^0.1.2",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "watchify": "*"
   }
 }

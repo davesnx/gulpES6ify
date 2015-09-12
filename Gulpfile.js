@@ -1,9 +1,9 @@
 var gulp = require('gulp');
-var index = require('gulp/index.js');
+var task = require('./tasks/index');
 
-gulp.task('style', index.style);
-gulp.task('script', index.bundle);
-gulp.task('watchScript', index.watchBundle);
+gulp.task('sass', task.style);
+gulp.task('bundle', task.bundle);
+gulp.task('watchScript', task.watchBundle);
 
-gulp.task('watch', ['style', 'watchScript'], index.watch);
-gulp.task('default', ['script', 'style']);
+gulp.task('watch', ['sass', 'watchScript'], task.watch);
+gulp.task('default', ['bundle', 'sass']);

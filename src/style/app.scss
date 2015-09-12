@@ -1,12 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 
-$color = #0080FF;
+$color: #0080ff;
 
 body {
-  margin: 0;
   background: $color;
-	font-size: 14em;
   font-family: 'Helvetica Neue', sans-serif;
+  font-size: 15em;
+  margin: 0;
 
   h1 {
     margin: 0 auto;
@@ -15,6 +15,6 @@ body {
     font-size: 20em;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     color: $color;
-    opacity: 0.7;
+    opacity: .7;
   }
 }

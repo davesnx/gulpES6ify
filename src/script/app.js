@@ -1,4 +1,4 @@
-import * as _ from '../node_modules/lodash/index.js';
+// import * as _ from '../node_modules/lodash/index.js';
 import { square, diag } from './lib';
 
 console.log('Square of default (5): ' + square()); // 121
