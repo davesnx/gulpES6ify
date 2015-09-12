@@ -16,7 +16,11 @@ module.exports = {
   sassOptions: {
       style:     'expanded',
       sourcemap: true,
-      verbose: true
+      verbose: true,
+      errLogToConsole: false,
+      onError: function(err) {
+        return notify().write(err);
+      }
   }
-  
+
 };

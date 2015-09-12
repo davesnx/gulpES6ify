@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
@@ -12,7 +13,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 var config = require('./../tasks/config');
-var consola = require('./../tasks/consola');
 
 var bundler = browserify({
     entries:      ['./' + config.input.directory + config.input.script],
@@ -26,7 +26,7 @@ var task = {
 
 	bundle: function() {
 		return bundler.bundle()
-			.on('error', consola.error)
+			.on('error', gutil.log.bind(gutil, 'Browserify Error'))
 			.pipe(source(config.output.script))
 			.pipe(buffer())
 			.pipe(sourcemaps.init({loadMaps: true}))
@@ -36,15 +36,17 @@ var task = {
 	},
 
 	watchBundle: function() {
-		bundle = watchify(bundler);
-		bundler.on('update', this.bundle);
-		bundler.on('log', consola.log);
-		return bundler();
+		b = watchify(bundler);
+		b.on('update', this.tasks.bundle);
+		b.on('log', gutil.log);
+		return bundle();
 	},
 
 	style: function() {
 		return sass(config.input.directory + config.input.style, config.sassOptions)
-			.on('error', consola.error)
+			.on('error', function(err) {
+            return notify().write(err);
+      })
 			.pipe(autoprefixer({map: {inline: true}}))
 			.pipe(rename(config.output.style))
 			.pipe(gulp.dest(config.output.directory))
@@ -53,7 +55,7 @@ var task = {
 
 	watch: function() {
 		livereload.listen();
-		var watches = config.watch;
+		var watches = [config.input.style];
 
 		for (var task in watches) {
 			var glob = watches[task];
