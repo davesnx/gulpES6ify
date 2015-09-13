@@ -9,6 +9,7 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var babelify = require('babelify');
 var sass = require('gulp-ruby-sass');
+var eslint = require('eslint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
@@ -22,51 +23,53 @@ var bundler = browserify({
     packageCache: {}
 });
 
-var task = {
+var task = {};
 
-	bundle: function() {
-		return bundler.bundle()
-			.on('error', gutil.log.bind(gutil, 'Browserify Error'))
-			.pipe(source(config.output.script))
-			.pipe(buffer())
-			.pipe(sourcemaps.init({loadMaps: true}))
-			.pipe(sourcemaps.write())
-			.pipe(gulp.dest(config.output.directory))
-			.pipe(livereload());
-	},
-
-	watchBundle: function() {
-		b = watchify(bundler);
-		b.on('update', this.tasks.bundle);
-		b.on('log', gutil.log);
-		return bundle();
-	},
-
-	style: function() {
-		return sass(config.input.directory + config.input.style, config.sassOptions)
-			.on('error', function(err) {
-            return notify().write(err);
-      })
-			.pipe(autoprefixer({map: {inline: true}}))
-			.pipe(rename(config.output.style))
-			.pipe(gulp.dest(config.output.directory))
-			.pipe(livereload());
-	},
-
-	watch: function() {
-		livereload.listen();
-		var watches = [config.input.style];
-
-		for (var task in watches) {
-			var glob = watches[task];
-			if (task == 'update') {
-				gulp.watch(glob, livereload.changed);
-			} else {
-				gulp.watch(glob, [task]);
-			}
-		}
-	}
-
+task.script = function() {
+	return bundler.bundle()
+		.on('error', gutil.log.bind(gutil, 'Browserify Error'))
+		.pipe(source(config.output.script))
+		.pipe(buffer())
+		.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(config.output.directory))
+		.pipe(livereload());
 };
+
+task.watchScript = function() {
+    livereload.listen();
+		b = watchify(bundler);
+		b.on('update', function() {
+      console.log("UPDATING?");
+      task.script();
+		});
+		b.on('log', gutil.log);
+		return task.script();
+};
+
+task.style = function() {
+	return sass(config.input.directory + config.input.style, config.sassOptions)
+		.on('error', function(err) {
+      return notify().write(err);
+    })
+		.pipe(autoprefixer({map: {inline: true}}))
+		.pipe(rename(config.output.style))
+		.pipe(gulp.dest(config.output.directory))
+		.pipe(livereload());
+};
+
+// task.watch = function() {
+// 	livereload.listen();
+// 	var watches = [config.input.style];
+//
+// 	for (var task in watches) {
+// 		var glob = watches[task];
+// 		if (task == 'update') {
+// 			gulp.watch(glob, livereload.changed);
+// 		} else {
+// 			gulp.watch(glob, [task]);
+// 		}
+// 	}
+// };
 
 module.exports = task;

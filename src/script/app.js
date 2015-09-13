@@ -2,12 +2,13 @@
 import { square, diag } from './lib';
 
 console.log('Square of default (5): ' + square()); // 121
-console.log('Lodash (5): ' + _.first([5, 2, 3])); // 5
 
 let bodyText = `This is really
 now
 perfectly
-legal.`;
+sadfasdfsd
+ilegal.`;
 
+console.log("");
 console.log("ooo");
 console.log(bodyText);
