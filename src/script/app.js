@@ -6,7 +6,6 @@ console.log('Square of default (5): ' + square()); // 121
 let bodyText = `This is really
 now
 perfectly
-sadfasdfsd
 ilegal.`;
 
 console.log("");

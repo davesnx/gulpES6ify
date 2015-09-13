@@ -1,10 +1,10 @@
 # es6ify is *WTF*ify?
 
- ### Initial Gulp for ES6 with livereload, babelify, browserify & watchify
+## Initial Gulp for ES6 with livereload, babelify, browserify & watchify
 
- Just a boilerplate for begin and scale a ECMAScript6 Application.
+Just a boilerplate for begin and scale a ECMAScript6 Application.
 
- #### Dependencies
+### Dependencies
  - browserify
  - watchify
  - babelify
@@ -21,13 +21,13 @@
  - ...
  - want more? :cold_sweat:
 
-#### Installation
+### Installation
 ```
 npm install gulp -g
 npm install
 ```
 
-#### Usage
+### Usage
 Edit `gulp/config` with input/output routes
 ```
 gulp watch

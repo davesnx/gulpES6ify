@@ -11,7 +11,8 @@
     "babel",
     "browserify",
     "watchify",
-    "livereload"
+    "livereload",
+    "javascript"
   ],
   "author": "@davesnx",
   "license": "MIT",

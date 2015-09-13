@@ -7,4 +7,4 @@ gulp.task('script', task.script);
 gulp.task('listener', task.watchScript);
 
 gulp.task('watch', ['sass', 'listener'], task.watch);
-gulp.task('default', ['script', 'sass']);
+gulp.task('default', ['watch']);

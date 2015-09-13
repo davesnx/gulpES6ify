@@ -58,18 +58,4 @@ task.style = function() {
 		.pipe(livereload());
 };
 
-// task.watch = function() {
-// 	livereload.listen();
-// 	var watches = [config.input.style];
-//
-// 	for (var task in watches) {
-// 		var glob = watches[task];
-// 		if (task == 'update') {
-// 			gulp.watch(glob, livereload.changed);
-// 		} else {
-// 			gulp.watch(glob, [task]);
-// 		}
-// 	}
-// };
-
 module.exports = task;
