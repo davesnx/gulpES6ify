@@ -9,3 +9,7 @@ logs
 pids
 *.pid
 *.seed
+
+# public
+public/*
+!public/.gitkeep
