@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 
   output: {
@@ -10,17 +12,18 @@ module.exports = {
     script:    'script/app.js',
     style:     'style/app.scss'
   },
-  watch: {
-    style: null
+  all: {
+    scripts: 'script/**/*.js',
+    views:   'view/**/*.html',
+    styles:  'style/**/*.scss'
   },
   sassOptions: {
       style:     'expanded',
       sourcemap: true,
-      verbose: true,
-      errLogToConsole: false,
-      onError: function(err) {
-        return notify().write(err);
-      }
+      verbose: true
+  },
+  watchifyOps: {
+    debug: true
   }
 
 };

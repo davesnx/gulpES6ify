@@ -2,10 +2,6 @@
   "name": "es6-babel-browserify-watchify",
   "version": "1.0.0",
   "description": "Initial Gulp for ES6 with livereload, babelify, browserify & watchify",
-  "main": "Gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "es6",
     "babel",
@@ -17,24 +13,23 @@
   "author": "@davesnx",
   "license": "MIT",
   "dependencies": {
-    "babelify": "6.3.0",
-    "browserify": "11.0.1",
+    "babelify": "^6.3.0",
+    "connect-livereload": "^0.5.3",
     "eslint": "^1.4.1",
+    "express": "^4.13.3",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "*",
-    "gulp-livereload": "*",
-    "gulp-rename": "*",
-    "gulp-ruby-sass": "*",
-    "gulp-sourcemaps": "*",
-    "gulp-uglify": "*",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-livereload": "^3.8.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
-    "lodash": "^3.10.1",
-    "lodash-node": "^3.10.1",
-    "node-notifier": "^4.2.3",
-    "underscore": "^1.8.3",
-    "underscore-node": "^0.1.2",
-    "vinyl-buffer": "*",
-    "vinyl-source-stream": "*",
-    "watchify": "*"
+    "http": "0.0.0",
+    "tiny-lr": "^0.1.6",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
   }
 }
