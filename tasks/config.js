@@ -1,11 +1,9 @@
-'use strict';
-
 module.exports = {
 
   output: {
     directory: 'public/',
     script:    'build.js',
-    style:     'styles.css'
+    style:     'style.css'
   },
   input: {
     directory: 'src/',
@@ -13,17 +11,14 @@ module.exports = {
     style:     'style/app.scss'
   },
   all: {
-    scripts: 'script/**/*.js',
-    views:   'view/**/*.html',
-    styles:  'style/**/*.scss'
+    scripts: 'src/script/**/*.js',
+    views:   'src/view/**/*.html',
+    styles:  'src/style/**/*.scss'
   },
   sassOptions: {
       style:     'expanded',
       sourcemap: true,
       verbose: true
-  },
-  watchifyOps: {
-    debug: true
   }
 
 };
