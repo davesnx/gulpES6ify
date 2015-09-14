@@ -2,10 +2,6 @@
   "name": "es6-babel-browserify-watchify",
   "version": "1.0.0",
   "description": "Initial Gulp for ES6 with livereload, babelify, browserify & watchify",
-  "main": "Gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "es6",
     "babel",
