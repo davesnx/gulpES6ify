@@ -34,9 +34,12 @@ var bundler = browserify({
 
 var w = watchify(bundler);
 
+refresh({ start:true });
+
 var task = {};
 
 task.script = function() {
+  gutil.log(gutil.colors.yellow('watchifying...'));
   return bundler.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(config.output.script))
@@ -49,6 +52,7 @@ task.script = function() {
 };
 
 task.style = function() {
+  gutil.log(gutil.colors.magenta('sassifying...'));
   return sass(config.input.directory + config.input.style, config.sassOptions)
     .pipe(watch(config.all.styles))
     .on('error', gutil.log)
@@ -59,6 +63,7 @@ task.style = function() {
 };
 
 task.html = function() {
+  gutil.log(gutil.colors.red('htmlifying...'));
   return gulp.src(config.all.views)
     .pipe(watch(config.all.views))
     .on('change', function(file) {
@@ -70,8 +75,14 @@ task.html = function() {
 };
 
 task.serve = function() {
-  http.createServer(ecstatic({ root: __dirname + '/../public' })).listen(serverport);
-  lrserver.listen(livereloadport);
+  http.createServer(ecstatic({ root: __dirname + '/../public' })).listen(serverport, function() {
+    gutil.log(gutil.colors.cyan("static server") + " on " + gutil.colors.green("localhost:" + serverport));
+  });
+
+  lrserver.listen(livereloadport, function() {
+    gutil.log(gutil.colors.cyan("livereload server") + " on " + gutil.colors.gray("localhost:" + livereloadport));
+  });
+
 };
 
 w.on('update', task.script);

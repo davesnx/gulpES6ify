@@ -18,7 +18,7 @@ module.exports = {
   sassOptions: {
       style:     'expanded',
       sourcemap: true,
-      verbose: true
+      verbose: false
   }
 
 };
