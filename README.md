@@ -5,19 +5,25 @@
 Just a boilerplate for begin and scale a ECMAScript6 Application.
 
 ### Dependencies
+ - gulp
+ - gulp-watch
+ - gulp-util
+ - vinyl-source-stream
+ - vinyl-buffer
+ - gulp-uglify
+ - gulp-sourcemaps
  - browserify
  - watchify
  - babelify
- - lodash
- - gulp-livereload
- - gulp-uglify
- - gulp-sourcemaps
  - gulp-ruby-sass
+ - eslint
+ - connect-livereload
  - gulp-autoprefixer
+ - tiny-lr
+ - gulp-embedlr
+ - gulp-livereload
  - gulp-rename
- - vinyl-source-stream
- - vinyl-buffer
- - node-notifier
+ - ecstatic
  - ...
  - want more? :cold_sweat:
 

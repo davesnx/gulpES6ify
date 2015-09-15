@@ -13,7 +13,7 @@ module.exports = {
   all: {
     scripts: 'src/script/**/*.js',
     views:   'src/view/**/*.html',
-    styles:  'src/style/**/*.scss'
+    styles:  'src/style/*.scss'
   },
   sassOptions: {
       style:     'expanded',
