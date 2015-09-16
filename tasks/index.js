@@ -17,7 +17,7 @@ var embedlr = require("gulp-embedlr");
 var lrserver = require('tiny-lr')();
 var refresh = require('gulp-livereload');
 var ecstatic = require('ecstatic');
-var plumber = require('gulp-plumber');
+
 var config = require('./../tasks/config');
 var livereloadport = 35728;
 var serverport = 1337;
