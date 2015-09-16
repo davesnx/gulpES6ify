@@ -15,12 +15,11 @@ var sass = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var embedlr = require("gulp-embedlr");
 var lrserver = require('tiny-lr')();
-var livereload = require('connect-livereload');
 var refresh = require('gulp-livereload');
 var ecstatic = require('ecstatic');
-
+ 
 var config = require('./../tasks/config');
-var livereloadport = 35729;
+var livereloadport = 35728;
 var serverport = 1337;
 
 var bundler = browserify({
@@ -43,7 +42,6 @@ task.script = function() {
   return bundler.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(config.output.script))
-    .pipe(watch(config.output.script))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write())
@@ -54,7 +52,6 @@ task.script = function() {
 task.style = function() {
   gutil.log(gutil.colors.magenta('sassifying...'));
   return sass(config.input.directory + config.input.style, config.sassOptions)
-    .pipe(watch(config.all.styles))
     .on('error', gutil.log)
     .pipe(autoprefixer({map: {inline: true}}))
     .pipe(rename(config.output.style))
@@ -66,9 +63,6 @@ task.html = function() {
   gutil.log(gutil.colors.red('htmlifying...'));
   return gulp.src(config.all.views)
     .pipe(watch(config.all.views))
-    .on('change', function(file) {
-      refresh.changed(file.path);
-    })
     .pipe(embedlr())
     .pipe(gulp.dest(config.output.directory))
     .pipe(refresh(lrserver));

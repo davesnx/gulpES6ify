@@ -9,5 +9,4 @@ gulp.task('html', task.html);
 gulp.task('serve', task.serve);
 
 gulp.task('build', ['html', 'script', 'style']);
-gulp.task('dev', ['script', 'html', 'serve']);
 gulp.task('default', ['script', 'style', 'html', 'serve']);
