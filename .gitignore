@@ -13,3 +13,5 @@ pids
 # public
 public/*
 !public/.gitkeep
+
+todo.txt
