@@ -16,7 +16,7 @@ module.exports = {
     styles:  'src/style/**/*.scss'
   },
   sassOptions: {
-      style:     'expanded',
+      outputStyle: 'compressed',
       sourcemap: true,
       verbose: true
   }

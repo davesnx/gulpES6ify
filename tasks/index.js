@@ -11,13 +11,13 @@ var sourcemaps = require('gulp-sourcemaps');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var babelify = require('babelify');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var embedlr = require("gulp-embedlr");
 var lrserver = require('tiny-lr')();
 var refresh = require('gulp-livereload');
 var ecstatic = require('ecstatic');
- 
+var plumber = require('gulp-plumber');
 var config = require('./../tasks/config');
 var livereloadport = 35728;
 var serverport = 1337;
@@ -51,10 +51,14 @@ task.script = function() {
 
 task.style = function() {
   gutil.log(gutil.colors.magenta('sassifying...'));
-  return sass(config.input.directory + config.input.style, config.sassOptions)
+  return gulp.src(config.all.styles)
+    .pipe(watch(config.all.styles))
+    .pipe(sass(config.sassOptions))
+    .pipe(sourcemaps.write())
     .on('error', gutil.log)
     .pipe(autoprefixer({map: {inline: true}}))
     .pipe(rename(config.output.style))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(config.output.directory))
     .pipe(refresh(lrserver));
 };
