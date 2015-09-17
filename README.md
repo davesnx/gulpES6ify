@@ -1,10 +1,10 @@
-#es6ify is *WTF*ify?
+#gulpES6ify is *WTF*ify?
 
 ##Initial Gulp for develop on ES6 with livereload, babelify, browserify & watchify
 
 Just a boilerplate for begin and scale a ES6 Application.
 
-### Dependencies
+###Dependencies
  - gulp
  - gulp-watch
  - gulp-util
@@ -27,20 +27,23 @@ Just a boilerplate for begin and scale a ES6 Application.
  - ...
  - want more? :cold_sweat:
 
-### Installation
+###Installation
 ```
 npm install gulp -g
 npm install
 ```
 
-### Usage
+###Usage
 Edit `gulp/config` with input/output routes
 ```
 gulp
 ```
 open with the browser: `localhost:1337`
+and enjoy :satisfied:
 
-### Todo
+___
+
+###Todo
  - Create tests for tasks
  - Add env=local|dev|prod parameter(?)
  - Add react support
