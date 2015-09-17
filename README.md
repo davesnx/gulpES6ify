@@ -1,11 +1,9 @@
 
 ![logo gulpES6ify](https://raw.githubusercontent.com/davesnx/gulpES6ify/master/header.png)
 
-#gulpES6ify is *WTF*ify?
+##gulpES6ify is *WTF*ify?
+###Initial Gulp for develop on ES6 with livereload, babelify, browserify & watchify
 
-##Initial Gulp for develop on ES6 with livereload, babelify, browserify & watchify
-
-Just The boilerplate task runner for ES6 Application.
 
 ###Dependencies
  - gulp
