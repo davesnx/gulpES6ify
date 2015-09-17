@@ -13,5 +13,6 @@ pids
 # public
 public/*
 !public/.gitkeep
+!public/logo.png
 
 todo.txt
