@@ -4,7 +4,6 @@
 ##gulpES6ify is *WTF*ify?
 ###Initial Gulp for develop on ES6 with livereload, babelify, browserify & watchify
 
-
 ###Dependencies
  - gulp
  - gulp-watch
@@ -35,7 +34,7 @@ npm install
 ```
 
 ###Usage
-Edit `gulp/config` with input/output routes
+Edit `config.js` with input/output routes
 ```
 gulp
 ```
@@ -46,6 +45,8 @@ ___
 
 ###Todo
  - Create tests for tasks
- - Add env=local|dev|prod parameter(?)
+ - Add env=local|dev|prod parameter
+ - Add images task
+ - Add deploy task
  - Add react support
  - Add coffee(?)
