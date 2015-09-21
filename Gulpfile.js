@@ -1,12 +1,17 @@
 'use strict';
 
 var gulp = require('gulp');
-var task = require('./tasks/index');
+var config = require('./config');
 
-gulp.task('style', task.style);
-gulp.task('script', task.script);
-gulp.task('html', task.html);
-gulp.task('serve', task.serve);
+var html = require('./tasks/html.js');
+var script = require('./tasks/script.js');
+var server = require('./tasks/server.js');
+var style = require('./tasks/style.js');
+
+gulp.task('style', style);
+gulp.task('script', script);
+gulp.task('html', html);
+gulp.task('server', server);
 
 gulp.task('build', ['html', 'script', 'style']);
-gulp.task('default', ['script', 'style', 'html', 'serve']);
+gulp.task('default', ['script', 'style', 'html', 'server']);
