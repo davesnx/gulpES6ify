@@ -1,5 +1,5 @@
 {
-  "name": "es6-babel-browserify-watchify",
+  "name": "gulpES6ify",
   "version": "1.0.0",
   "description": "Initial Gulp for ES6 with livereload, babelify, browserify & watchify",
   "keywords": [
