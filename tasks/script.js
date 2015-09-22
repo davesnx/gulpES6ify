@@ -14,7 +14,7 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 
 var bundler = browserify({
-    entries: ['./' + config.input.directory + config.input.script],
+    entries: ['./' + config.script.input],
     debug: true,
     transform: [[babelify, {global: true}]],
     cache: {},
@@ -30,11 +30,11 @@ var scriptTask = function() {
   gutil.log(gutil.colors.yellow('watchifying...'));
   return bundler.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-    .pipe(source(config.output.script))
+    .pipe(source(config.script.public))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.output.directory))
+    .pipe(gulp.dest(config.script.output))
     .pipe(refresh(lrserver));
 };
 

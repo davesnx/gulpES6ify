@@ -9,18 +9,15 @@ var config = require('./../config');
 var ecstatic = require('ecstatic');
 var http = require('http');
 
-var LIVERELOADPORT = 35728;
-var SERVERPORT = 1337;
-
 refresh({ start:true });
 
 module.exports = function() {
-  http.createServer(ecstatic({ root: __dirname + '/../public' })).listen(SERVERPORT, function() {
-    gutil.log(gutil.colors.cyan("static server") + " on " + gutil.colors.green("localhost:" + SERVERPORT));
+  http.createServer(ecstatic({ root: __dirname + '/../public' })).listen(config.server.port, function() {
+    gutil.log(gutil.colors.cyan("static server") + " on " + gutil.colors.green("localhost:" + config.server.port));
   });
 
-  lrserver.listen(LIVERELOADPORT, function() {
-    gutil.log(gutil.colors.cyan("livereload server") + " on " + gutil.colors.gray("localhost:" + LIVERELOADPORT));
+  lrserver.listen(config.server.livereloadport, function() {
+    gutil.log(gutil.colors.cyan("livereload server") + " on " + gutil.colors.gray("localhost:" + config.server.livereloadport));
   });
 
 };

@@ -13,15 +13,15 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 
 module.exports = function() {
-  gutil.log(gutil.colors.magenta('sassifying...'));
-  return gulp.src(config.all.styles)
-    .pipe(watch(config.all.styles))
+  gutil.log(gutil.colors.yellow('sassifying...'));
+  return gulp.src(config.style.all)
+    .pipe(watch(config.style.all))
     .pipe(sass(config.sassOptions))
     .pipe(sourcemaps.write())
     .on('error', gutil.log)
     .pipe(autoprefixer({map: {inline: true}}))
-    .pipe(rename(config.output.style))
+    .pipe(rename(config.style.public))
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(config.output.directory))
+    .pipe(gulp.dest(config.style.output))
     .pipe(refresh(lrserver));
 };
