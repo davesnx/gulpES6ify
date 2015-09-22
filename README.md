@@ -46,7 +46,6 @@ ___
 ###Todo
  - Create tests for tasks
  - Add env=local|dev|prod parameter
- - Add images task
  - Add deploy task
  - Add react support
  - Add coffee(?)
