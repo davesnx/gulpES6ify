@@ -45,6 +45,5 @@ ___
 
 ###Todo
  - Create tests for tasks
+ - Create launch tests for ES6
  - Add env=local|dev|prod parameter
- - Add react support
- - Add coffee(?)
