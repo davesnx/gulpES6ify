@@ -32,10 +32,10 @@ module.exports = {
     verbose: true
   },
   deploy: {
-    src: production + '/**',
+    src: '' + '/**',
     options: {
       destination: '~/path/to/my/website/root/',
-      root: production,
+      root: '',
       hostname: 'mydomain.com',
       username: 'user',
       incremental: true,
