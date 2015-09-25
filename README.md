@@ -40,7 +40,8 @@ gulp
 ```
 open with the browser: `localhost:1337`
 and enjoy :satisfied:
-(don't need the chrome extension!)
+
+(no need the chrome extension!)
 
 ___
 
