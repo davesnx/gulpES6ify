@@ -2,7 +2,7 @@
 ![logo gulpES6ify](https://raw.githubusercontent.com/davesnx/gulpES6ify/master/header.png)
 
 ##gulpES6ify is *WTF*ify?
-###Initial Gulp for develop on ES6 with livereload, babelify, browserify & watchify
+###Initial gulp for develop on ES6 with livereload, babelify, browserify & watchify
 
 ###Dependencies
  - gulp
@@ -40,6 +40,7 @@ gulp
 ```
 open with the browser: `localhost:1337`
 and enjoy :satisfied:
+(don't need the chrome extension!)
 
 ___
 
