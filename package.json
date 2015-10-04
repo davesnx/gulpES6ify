@@ -1,7 +1,7 @@
 {
   "name": "gulpES6ify",
   "version": "1.0.0",
-  "description": "Initial Gulp for ES6 with livereload, babelify, browserify & watchify",
+  "description": "Gulp for ES6 with livereload, babelify, browserify & watchify",
   "keywords": [
     "es6",
     "babel",
