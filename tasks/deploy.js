@@ -1,12 +1,12 @@
-'use strict';
+import gulp from 'gulp';
+import rsync from 'gulp-rsync';
+import config from './../config';
+import notificator from './libs/notificator';
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var rsync = require('gulp-rsync');
-var config = require('./../config');
+const NOTIFICATION_MSG = 'deploying...';
 
-module.exports = function() {
-  gutil.log(gutil.colors.yellow('deploying...'));
+export default () => {
   return gulp.src(config.html.output)
-    .pipe(rsync(config.deploy));
+    .pipe(rsync(config.deploy))
+    .pipe(notificator(NOTIFICATION_MSG));
 };

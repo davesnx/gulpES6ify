@@ -1,4 +1,4 @@
-const sqrt = Math.sqrt;
+let sqrt = Math.sqrt;
 
 function square(x = 5) {
 	return x * x;

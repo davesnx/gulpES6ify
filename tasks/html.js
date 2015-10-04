@@ -1,19 +1,19 @@
-'use strict';
+import gulp from 'gulp';
+import watch from 'gulp-watch';
+import refresh from 'gulp-livereload';
+import * as lrserver from 'tiny-lr';
+import config from './../config';
+import embedlr from "gulp-embedlr";
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var watch = require('gulp-watch');
-var refresh = require('gulp-livereload');
-var lrserver = require('tiny-lr')();
-var config = require('./../config');
+import notificator from './libs/notificator';
 
-var embedlr = require("gulp-embedlr");
+const NOTIFICATION_MSG = 'htmlifying...';
 
-module.exports = function() {
-  gutil.log(gutil.colors.yellow('htmlifying...'));
+export default () => {
   return gulp.src(config.html.all)
     .pipe(watch(config.html.all))
     .pipe(embedlr())
     .pipe(gulp.dest(config.html.output))
-    .pipe(refresh(lrserver));
+    .pipe(refresh(lrserver))
+    .pipe(notificator(NOTIFICATION_MSG));
 };

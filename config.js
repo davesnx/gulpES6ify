@@ -1,5 +1,6 @@
-module.exports = {
+export default {
 
+  info: 'gulpES6ify',
   html: {
     input: 'src/',
     output:'public/',
@@ -23,6 +24,7 @@ module.exports = {
     public:'style.css'
   },
   server: {
+    host: 'localhost',
     port: 1337,
     livereloadport: 35728
   },
@@ -32,10 +34,10 @@ module.exports = {
     verbose: true
   },
   deploy: {
-    src: '' + '/**',
+    src: 'public' + '/**',
     options: {
       destination: '~/path/to/my/website/root/',
-      root: '',
+      root: 'production',
       hostname: 'mydomain.com',
       username: 'user',
       incremental: true,

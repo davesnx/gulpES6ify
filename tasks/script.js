@@ -1,17 +1,19 @@
-'use strict';
+import gulp from 'gulp';
+import gutil from 'gulp-util';
+import refresh from 'gulp-livereload';
+import * as lrserver from 'tiny-lr';
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var refresh = require('gulp-livereload');
-var lrserver = require('tiny-lr')();
-var config = require('./../config');
+import buffer from 'vinyl-buffer';
+import source from 'vinyl-source-stream';
+import sourcemaps from 'gulp-sourcemaps';
+import watchify from 'watchify';
+import babelify from 'babelify';
+import browserify from 'browserify';
 
-var buffer = require('vinyl-buffer');
-var source = require('vinyl-source-stream');
-var sourcemaps = require('gulp-sourcemaps');
-var watchify = require('watchify');
-var babelify = require('babelify');
-var browserify = require('browserify');
+import config from './../config';
+import notificator from './libs/notificator';
+
+const NOTIFICATION_MSG = 'watchifying...';
 
 var bundler = browserify({
     entries: ['./' + config.script.input],
@@ -26,8 +28,7 @@ var w = watchify(bundler);
 
 refresh({ start:true });
 
-var scriptTask = function() {
-  gutil.log(gutil.colors.yellow('watchifying...'));
+var scriptTask = () => {
   return bundler.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(config.script.public))
@@ -35,10 +36,11 @@ var scriptTask = function() {
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.script.output))
-    .pipe(refresh(lrserver));
+    .pipe(refresh(lrserver))
+    .pipe(notificator(NOTIFICATION_MSG));
 };
 
 w.on('update', scriptTask);
 w.on('log', gutil.log);
 
-module.exports = scriptTask;
+export default scriptTask;

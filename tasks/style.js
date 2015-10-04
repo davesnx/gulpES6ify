@@ -1,19 +1,20 @@
-'use strict';
+import gulp from 'gulp';
+import gutil from 'gulp-util';
+import refresh from 'gulp-livereload';
+import lrserver from 'tiny-lr';
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var refresh = require('gulp-livereload');
-var lrserver = require('tiny-lr')();
-var watch = require('gulp-watch');
-var config = require('./../config');
+import watch from 'gulp-watch';
+import config from './../config';
+import sass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import sourcemaps from 'gulp-sourcemaps';
+import rename from 'gulp-rename';
 
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var rename = require('gulp-rename');
+import notificator from './libs/notificator';
 
-module.exports = function() {
-  gutil.log(gutil.colors.yellow('sassifying...'));
+const NOTIFICATION_MSG = 'sassifying...';
+
+export default () => {
   return gulp.src(config.style.all)
     .pipe(watch(config.style.all))
     .pipe(sass(config.sassOptions))
@@ -23,5 +24,6 @@ module.exports = function() {
     .pipe(rename(config.style.public))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(config.style.output))
-    .pipe(refresh(lrserver));
+    .pipe(refresh(lrserver))
+    .pipe(notificator(NOTIFICATION_MSG));
 };
