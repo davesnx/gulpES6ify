@@ -1,5 +1,4 @@
 export default {
-
   info: 'gulpES6ify',
   html: {
     input: 'src/',
@@ -50,5 +49,4 @@ export default {
       include: []
     }
   }
-
 };
