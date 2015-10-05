@@ -1,5 +1,4 @@
 import { square, diag } from './lib';
-
 // presentation !
 
 // const PI = 3.14;
@@ -199,8 +198,6 @@ wm1.has(o2); // true
 
 wm2.get(o2); // undefined
 wm2.has(o2); // false
-
-
 
 function timeout(duration = 0) {
     return new Promise((resolve, reject) => {

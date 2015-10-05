@@ -30,7 +30,6 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.5",
-    "http": "0.0.0",
     "node-notifier": "^4.3.1",
     "node-sass": "^3.3.3",
     "tiny-lr": "^0.2.0",

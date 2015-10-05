@@ -5,25 +5,30 @@
 ###Initial gulp for develop on ES6 with livereload, babelify, browserify & watchify
 
 ###Dependencies
- - gulp
- - gulp-watch
- - gulp-util
- - vinyl-source-stream
- - vinyl-buffer
- - gulp-uglify
- - gulp-sourcemaps
- - browserify
- - watchify
+ - babel
  - babelify
- - gulp-sass
- - eslint
+ - browserify
  - connect-livereload
+ - ecstatic
+ - gulp
  - gulp-autoprefixer
- - tiny-lr
+ - gulp-browserify
+ - gulp-connect
  - gulp-embedlr
  - gulp-livereload
  - gulp-rename
- - ecstatic
+ - gulp-rsync
+ - gulp-sass
+ - gulp-sourcemaps
+ - gulp-util
+ - gulp-watch
+ - http
+ - node-notifier
+ - node-sass
+ - tiny-lr
+ - vinyl-buffer
+ - vinyl-source-stream
+ - watchify
  - ...
  - want more? :cold_sweat:
 
