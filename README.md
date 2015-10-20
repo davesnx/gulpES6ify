@@ -1,8 +1,6 @@
 
 ![logo gulpES6ify](https://raw.githubusercontent.com/davesnx/gulpES6ify/master/header.png)
-
-##gulpES6ify is *WTF*ify?
-###Initial gulp for develop on ES6 with browserSync, babelify, browserify & watchify
+## Initial gulp for develop on ES6 with browserSync, babelify, browserify & watchify
 
 ###Dependencies
 	- babel
