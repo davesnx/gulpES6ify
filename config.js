@@ -5,32 +5,30 @@ export default {
     output:'public/',
     all:   'src/**/*.html'
   },
-  image: {
+  assets: {
     input: 'src/',
-    output:'public/img',
-    all:   'src/img/**/*'
+    output:'public/assets',
+    all:   'src/assets/**/*'
   },
-  script: {
-    input: 'src/script/app.js',
-    output:'public/script',
-    all:   'src/script/**/*.js',
+  scripts: {
+    input: 'src/scripts/app.js',
+    output:'public/scripts',
+    all:   'src/scripts/**/*.js',
     public:'build.js'
   },
-  style: {
+  styles: {
     input: 'src/',
-    output:'public/style',
-    all:   'src/style/**/*.scss',
-    public:'style.css'
+    output:'public/styles',
+    all:   'src/styles/**/*.scss',
+    public:'style.css',
+    sassOptions: {
+      outputStyle: 'compressed',
+      sourcemap: true,
+      verbose: true
+    },
   },
   server: {
-    host: 'localhost',
-    port: 1337,
-    livereloadport: 35728
-  },
-  sassOptions: {
-    outputStyle: 'compressed',
-    sourcemap: true,
-    verbose: true
+    baseDir: './public'
   },
   deploy: {
     src: 'public' + '/**',
