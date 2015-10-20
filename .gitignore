@@ -12,4 +12,8 @@ pids
 
 # public
 public/
+
+# temp hide tests
+tasks/tests/*
+
 todo.txt
