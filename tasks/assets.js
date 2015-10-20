@@ -1,6 +1,4 @@
 import gulp from 'gulp';
-import watch from 'gulp-watch';
-import notify from 'gulp-notify';
 import browserSync from 'browser-sync';
 import config from './../config';
 
