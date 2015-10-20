@@ -1,19 +1,23 @@
 import gulp from 'gulp';
-import config from './config';
+import config from './tasks/config';
 
 import html from './tasks/html.js';
-import script from './tasks/script.js';
+import scripts from './tasks/scripts.js';
 import server from './tasks/server.js';
-import style from './tasks/style.js';
-import image from './tasks/image.js';
+import styles from './tasks/styles.js';
+import assets from './tasks/assets.js';
+import watch from './tasks/watch.js';
 import deploy from './tasks/deploy.js';
+import clean from './tasks/clean.js';
 
-gulp.task('style', style);
-gulp.task('script', script);
+gulp.task('styles', styles);
+gulp.task('scripts', scripts);
 gulp.task('html', html);
-gulp.task('image', image);
+gulp.task('assets', assets);
 gulp.task('server', server);
-gulp.task('deploy', deploy); // it's beta
+gulp.task('watch', watch);
+gulp.task('deploy', deploy); // beta
+gulp.task('clean', clean);
 
-gulp.task('build', ['html', 'image', 'script', 'style']);
-gulp.task('default', ['script', 'style', 'image', 'html', 'server']);
+gulp.task('build', ['clean', 'html', 'assets', 'scripts', 'styles']);
+gulp.task('default', ['clean', 'scripts', 'styles', 'assets', 'html', 'server', 'watch']);
