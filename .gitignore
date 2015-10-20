@@ -10,9 +10,6 @@ pids
 *.pid
 *.seed
 
-# public
-public/*
-!public/.gitkeep
-!public/logo.png
-
+# public
+public/
 todo.txt
