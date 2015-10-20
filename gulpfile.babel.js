@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import config from './tasks/config';
+import config from './config';
 
 import html from './tasks/html.js';
 import scripts from './tasks/scripts.js';
@@ -20,4 +20,4 @@ gulp.task('deploy', deploy); // beta
 gulp.task('clean', clean);
 
 gulp.task('build', ['clean', 'html', 'assets', 'scripts', 'styles']);
-gulp.task('default', ['clean', 'scripts', 'styles', 'assets', 'html', 'server', 'watch']);
+gulp.task('default', ['scripts', 'styles', 'assets', 'html', 'server', 'watch']);

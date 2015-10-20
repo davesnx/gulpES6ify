@@ -1,4 +1,5 @@
 import { square, diag } from './lib';
+
 // presentation !
 
 // const PI = 3.14;
@@ -128,12 +129,6 @@ var handler = {
   }
 };
 
-var p = new Proxy(target, handler);
-p.world === 'Hello, world!';
-
-console.log(p);
-
-
 var s = new Set();
 
 s.add(1).add(5).add('lola').add({a: 1, b: 2});
@@ -174,9 +169,9 @@ m.get(obj); // "value associated with obj"
 m.get("a string"); // "value associated with 'a string'"
                        // because str === 'a string'
 
-for (let item of mySet) console.log(item);
-for (let item of mySet.keys()) console.log(item);
-for (let item of mySet.values()) console.log(item);
+for (let item of m) console.log(item);
+for (let item of m.keys()) console.log(item);
+for (let item of m.values()) console.log(item);
 
 
 

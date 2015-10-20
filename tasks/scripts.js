@@ -8,6 +8,8 @@ import sourcemaps from 'gulp-sourcemaps';
 import watchify from 'watchify';
 import babelify from 'babelify';
 import browserify from 'browserify';
+import rename from 'gulp-rename';
+import uglify from 'gulp-uglify';
 
 import config from './../config';
 import notificator from './libs/notificator';
@@ -17,7 +19,7 @@ const NOTIFICATION_MSG = 'watchifying...';
 var bundler = browserify({
     entries: ['./' + config.scripts.input],
     debug: true,
-    transform: [[babelify, {global: true}]],
+    transform: [[babelify, { global: true }]],
     cache: {},
     packageCache: {},
     fullPaths: true
@@ -30,8 +32,9 @@ var bundleJS = () => {
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(config.scripts.public))
     .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(config.scripts.output))
     .pipe(browserSync.stream())
     .pipe(notificator(NOTIFICATION_MSG));

@@ -17,7 +17,7 @@ export default () => {
     .pipe(sass(config.styles.sassOptions))
     .pipe(sourcemaps.write())
     .on('error', gutil.log)
-    .pipe(autoprefixer({map: {inline: true}}))
+    .pipe(autoprefixer(config.styles.prefixOptions))
     .pipe(rename(config.styles.public))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(config.styles.output))

@@ -3,7 +3,7 @@ import * as es from 'event-stream';
 import path from 'path';
 
 import gutil from 'gulp-util';
-import config from './../config';
+import config from './../../config';
 
 import notifier from 'node-notifier';
 
