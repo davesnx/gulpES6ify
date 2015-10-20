@@ -1,7 +1,6 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
-import refresh from 'gulp-livereload';
-import * as lrserver from 'tiny-lr';
+import browserSync from 'browser-sync'
 
 import buffer from 'vinyl-buffer';
 import source from 'vinyl-source-stream';
@@ -16,7 +15,7 @@ import notificator from './libs/notificator';
 const NOTIFICATION_MSG = 'watchifying...';
 
 var bundler = browserify({
-    entries: ['./' + config.script.input],
+    entries: ['./' + config.scripts.input],
     debug: true,
     transform: [[babelify, {global: true}]],
     cache: {},
@@ -26,21 +25,19 @@ var bundler = browserify({
 
 var w = watchify(bundler);
 
-refresh({ start:true });
-
-var scriptTask = () => {
+var bundleJS = () => {
   return bundler.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-    .pipe(source(config.script.public))
+    .pipe(source(config.scripts.public))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.script.output))
-    .pipe(refresh(lrserver))
+    .pipe(gulp.dest(config.scripts.output))
+    .pipe(browserSync.stream())
     .pipe(notificator(NOTIFICATION_MSG));
 };
 
-w.on('update', scriptTask);
+w.on('update', bundleJS);
 w.on('log', gutil.log);
 
-export default scriptTask;
+export default bundleJS;
