@@ -15,6 +15,7 @@ export default (gulp, gutil, config, notificator, browserSync) => {
     let bundler = browserify({
         entries: ['./' + config.scripts.input],
         debug: true,
+        sourceMapRelative: config.scripts.public,
         transform: [[babelify, { global: true }]],
         cache: {},
         packageCache: {},
