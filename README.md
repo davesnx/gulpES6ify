@@ -22,8 +22,8 @@
 	- vinyl-buffer
 	- vinyl-source-stream
 	- watchify
- - ...
- - want more? :cold_sweat:
+ 	- ...
+ 	- want more? :cold_sweat:
 
 ###Installation
 ```
