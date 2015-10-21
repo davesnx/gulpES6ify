@@ -1,6 +1,7 @@
 
 ![logo gulpES6ify](https://raw.githubusercontent.com/davesnx/gulpES6ify/master/header.png)
-## Initial gulp for develop on ES6 with browserSync, babelify, browserify & watchify
+## Initial gulp for develop on ES6
+### browserSync, babelify, browserify & watchify
 **Modular**, **modern**, **testable**(*soon...*) and **SASSable** way of implementing **ES6 Projects**.
 Launching a `BrowserSync` **local** server and **shared** server for live code syncronized:
 - **Styles** are compiled with **SASS**, **autprefixed**, **sourcemaped** and **minified**. 
