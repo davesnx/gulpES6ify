@@ -12,6 +12,7 @@ pids
 
 # public
 public/
+!public/assets/logo.png
 
 # temp hide tests
 tasks/tests/*
