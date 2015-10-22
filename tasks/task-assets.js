@@ -1,14 +1,13 @@
-import browserSync from 'browser-sync';
+// common dependencies
+import gulp from 'gulp'
+import gutil from 'gulp-util'
+import notificator from './libs/notificator'
+import config from './../config'
+import browserSync from 'browser-sync'
 
-
-export default (gulp, config, notificator) => {
-
-  function assets () {
-    return gulp.src(config.assets.all)
-      .pipe(gulp.dest(config.assets.output))
-      .pipe(browserSync.stream())
-      .pipe(notificator(config.assets.message));
-  };
-
-  gulp.task('assets', assets);
+export default () => {
+  return gulp.src(config.assets.all)
+    .pipe(gulp.dest(config.assets.output))
+    .pipe(browserSync.stream())
+    .pipe(notificator(config.assets.message));
 };

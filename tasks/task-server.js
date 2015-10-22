@@ -1,15 +1,12 @@
+// common dependencies
+import gulp from 'gulp'
+import config from './../config'
+import browserSync from 'browser-sync'
 
-
-export default (gulp, config, browserSync) => {
-
-  function server () {
-    return browserSync.init({
-      server: {
-        baseDir: config.server.baseDir
-      }
-    });
-  }
-
-  gulp.task('server', server);
-
+export default () => {
+  return browserSync.init({
+    server: {
+      baseDir: config.server.baseDir
+    }
+  });
 };

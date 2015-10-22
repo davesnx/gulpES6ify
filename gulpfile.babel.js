@@ -4,19 +4,23 @@ import config from './config';
 import browserSync from 'browser-sync';
 import notificator from './tasks/libs/notificator';
 
-// Using require for passing the common dependences...
-require('./tasks/task-html.js')(gulp, config, notificator, browserSync);
-require('./tasks/task-scripts.js')(gulp, gutil, config, notificator, browserSync);
-require('./tasks/task-server.js')(gulp, config, browserSync);
-require('./tasks/task-styles.js')(gulp, gutil, config, notificator, browserSync);
-require('./tasks/task-assets.js')(gulp, config, notificator);
-require('./tasks/task-deploy.js')(gulp, config, notificator);
-require('./tasks/task-clean.js')(gulp, config);
+import html from './tasks/task-html.js';
+import scripts from './tasks/task-scripts.js';
+import server from './tasks/task-server.js';
+import styles from './tasks/task-styles.js';
+import assets from './tasks/task-assets.js';
+import deploy from './tasks/task-deploy.js';
+import clean from './tasks/task-clean.js';
+import watch from './tasks/task-watch.js';
 
-gulp.watch(config.styles.all, ['styles', browserSync.reload]);
-gulp.watch(config.scripts.all, ['scripts', browserSync.reload]);
-gulp.watch(config.assets.all, ['assets', browserSync.reload]);
-gulp.watch(config.html.all, ['html', browserSync.reload]);
+gulp.task('html', html);
+gulp.task('scripts', scripts);
+gulp.task('server', server);
+gulp.task('styles', styles);
+gulp.task('assets', assets);
+gulp.task('deploy', deploy);
+gulp.task('clean', clean);
+gulp.task('watch', watch);
 
 gulp.task('build', ['clean', 'html', 'assets', 'scripts', 'styles']);
 gulp.task('default', ['clean', 'html', 'assets', 'scripts', 'styles', 'server']);
