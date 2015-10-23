@@ -17,6 +17,7 @@ export default {
     output:'public/scripts',
     all:   'src/scripts/**/*.js',
     public:'build.js',
+    map: 'build.js.map',
     message: 'watchifying...'
   },
   styles: {

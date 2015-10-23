@@ -22,5 +22,20 @@ gulp.task('deploy', deploy);
 gulp.task('clean', clean);
 gulp.task('watch', watch);
 
-gulp.task('build', ['clean', 'html', 'assets', 'scripts', 'styles']);
-gulp.task('default', ['clean', 'html', 'assets', 'scripts', 'styles', 'server']);
+gulp.task('build', [
+    'clean',
+    'html',
+    'assets',
+    'scripts',
+    'styles'
+    ]
+);
+
+gulp.task('default', [
+    'server',
+    'html',
+    'assets',
+    'scripts',
+    'styles'
+    ]
+);

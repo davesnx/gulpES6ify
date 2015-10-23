@@ -5,7 +5,7 @@ import config from './../config'
 import del from 'del';
 
 export default () => {
-  return del([
+  return del.sync([
     config.assets.output,
     config.styles.output,
     config.scripts.output,

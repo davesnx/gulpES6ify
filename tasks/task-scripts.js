@@ -28,12 +28,16 @@ var w = watchify(bundler);
 
 var bundleJS = () => {
   return bundler.bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .on('error', (err) => {
+        gutil.log(err.message);
+        browserSync.notify(err.message, 3000);
+        this.emit('end');
+    })
     .pipe(source(config.scripts.public))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
+    // .pipe(uglify())
+    // .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.scripts.output))
     .pipe(browserSync.stream())
