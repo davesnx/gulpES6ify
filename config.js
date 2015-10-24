@@ -18,7 +18,10 @@ export default {
     all:   'src/scripts/**/*.js',
     public:'build.js',
     map: 'build.js.map',
-    message: 'watchifying...'
+    message: 'watchifying...',
+    tests: {
+      input: 'src/scripts/tests'
+    }
   },
   styles: {
     input: 'src/',

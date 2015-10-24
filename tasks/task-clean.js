@@ -4,7 +4,7 @@ import config from './../config'
 
 import del from 'del';
 
-export default () => {
+let clean = () => {
   return del.sync([
     config.assets.output,
     config.styles.output,
@@ -12,3 +12,6 @@ export default () => {
     config.html.output
   ]);
 };
+
+export default clean;
+gulp.task('clean', clean);

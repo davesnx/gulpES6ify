@@ -10,7 +10,7 @@ import autoprefixer from 'gulp-autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
 
-export default () => {
+let styles = () => {
   return gulp.src(config.styles.all)
     .pipe(sourcemaps.init())
     .pipe(sass(config.styles.sassOptions))
@@ -23,3 +23,6 @@ export default () => {
     .pipe(browserSync.stream())
     .pipe(notificator(config.styles.message));
 };
+
+export default styles;
+gulp.task('styles', styles);

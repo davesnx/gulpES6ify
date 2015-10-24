@@ -24,9 +24,9 @@ let bundler = browserify({
     fullPaths: true
 });
 
-var w = watchify(bundler);
+let w = watchify(bundler);
 
-var bundleJS = () => {
+let bundleJS = () => {
   return bundler.bundle()
     .on('error', (err) => {
         gutil.log(err.message);
@@ -48,3 +48,4 @@ w.on('update', bundleJS);
 w.on('log', gutil.log);
 
 export default bundleJS;
+gulp.task('scripts', bundleJS);

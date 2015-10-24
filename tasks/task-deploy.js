@@ -4,8 +4,11 @@ import config from './../config'
 
 import rsync from 'gulp-rsync';
 
-export default () => {
+let deploy = () => {
     return gulp.src(config.html.output)
       .pipe(rsync(config.deploy))
       .pipe(notificator(config.deploy.message));
 };
+
+export default deploy;
+gulp.task('deploy', deploy);

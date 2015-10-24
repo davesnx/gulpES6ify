@@ -14,7 +14,4 @@ pids
 public/
 !public/assets/logo.png
 
-# temp hide tests
-tasks/tests/*
-
 todo.txt
