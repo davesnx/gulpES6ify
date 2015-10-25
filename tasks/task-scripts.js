@@ -2,7 +2,7 @@
 import gulp from 'gulp'
 import gutil from 'gulp-util'
 import notificator from './libs/notificator'
-import config from './../config'
+import config from './config'
 import browserSync from 'browser-sync'
 
 import buffer from 'vinyl-buffer';

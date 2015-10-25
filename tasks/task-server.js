@@ -1,6 +1,6 @@
 // common dependencies
 import gulp from 'gulp'
-import config from './../config'
+import config from './config'
 import browserSync from 'browser-sync'
 
 let server = () => {
