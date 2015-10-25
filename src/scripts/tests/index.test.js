@@ -1,20 +1,21 @@
-import { square, diag } from '../lib'
+import * as lib from '../lib'
+import { should, expect } from 'chai'
 
 describe('lib.js', () => {
 
-	describe('lib.square', () => {
+	describe('square', () => {
 		it('should create a empty square', () => {
-	    square().should.equal(25);
+	    expect(lib.square().to.equal(25));
 	  });
 
 		it('should create a square', () => {
-			square(10).should.equal(100);
+			expect(lib.square(10).to.equal(100));
 		});
 	});
 
-	describe('lib.diag', () => {
+	describe('diag', () => {
 		it('should calculate the diag', () => {
-	    diag(3, 4).should.equal(5);
+	    expect(lib.diag(3, 4).to.equal(5));
 	  });
 	});
 

@@ -20,7 +20,8 @@ export default {
     map: 'build.js.map',
     message: 'watchifying...',
     tests: {
-      input: 'src/scripts/tests'
+      all: 'src/scripts/tests/**',
+      input: 'src/scripts/tests/index.test.js'
     }
   },
   styles: {
