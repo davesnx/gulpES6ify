@@ -3,7 +3,7 @@ export default {
   html: {
     input: 'src/',
     output:'public/',
-    all:   'src/**/*.html',
+    all:   'src/*.html',
     message: 'htmlifying...'
   },
   assets: {

@@ -5,7 +5,7 @@ import notificator from './libs/notificator'
 import config from './config'
 import browserSync from 'browser-sync'
 
-let assets = () => {
+const assets = () => {
   return gulp.src(config.assets.all)
     .pipe(gulp.dest(config.assets.output))
     .pipe(browserSync.stream())

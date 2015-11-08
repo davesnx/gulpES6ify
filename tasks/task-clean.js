@@ -4,7 +4,7 @@ import config from './config'
 
 import del from 'del';
 
-let clean = () => {
+const clean = () => {
   return del.sync([
     config.assets.output,
     config.styles.output,

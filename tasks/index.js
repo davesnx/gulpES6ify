@@ -17,6 +17,7 @@ gulp.task('default', [
     'html',
     'assets',
     'scripts',
-    'styles'
+    'styles',
+    'watch'
     ]
 );

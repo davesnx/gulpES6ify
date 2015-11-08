@@ -14,7 +14,7 @@ import babelify from 'babelify';
 import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 
-let bundler = browserify({
+const bundler = browserify({
     entries: ['./' + config.scripts.input],
     debug: true,
     sourceMapRelative: config.scripts.public,
@@ -24,9 +24,9 @@ let bundler = browserify({
     fullPaths: true
 });
 
-let w = watchify(bundler);
+const w = watchify(bundler);
 
-let bundleJS = () => {
+const bundleJS = () => {
   return bundler.bundle()
     .on('error', (err) => {
         gutil.log(err.message);
